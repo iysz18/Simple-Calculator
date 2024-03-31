@@ -10,4 +10,47 @@ body {
     height: 100vh;
 }
 
-/*  */
+#calculatorBody {
+    height: 35rem;
+    width: 25rem;
+
+    display: flex;
+    flex-direction: column;
+    
+    /* for visualizing the container size */
+    border: solid 10px black;
+    border-radius: 5px;
+}
+
+#displayContainer {
+    height: 10rem;
+
+    /* for visualizing the container size */
+    background-color: gray;
+}
+
+/* settings for the result values inside the display container */
+#resultValues {text-align: right;}
+
+/* styling of the keypad and each button */
+#keypadContainer {
+    display: flex;
+    flex-wrap: wrap;
+
+    /* stretch this container to 100% available space */
+    height: 100%;
+    
+    /* remove the blank spaces between the button created by the browser */
+    font-size: 0;
+}
+
+/* set size of each button */
+.btn {
+    width: calc(100% / 4);
+    height: calc(100% / 5);
+}
+
+/* set for the zero key the flex property */
+.btn.zero {
+    flex-grow: 1;
+}
