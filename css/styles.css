@@ -56,7 +56,7 @@ body {
 /* set size of each button and font size */
 .btn {
     /* font sizing */
-    font-size: 30px;
+    font-size: 35px;
     
     /* size */
     width: calc(100% / 4);
