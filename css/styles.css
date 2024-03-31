@@ -1,0 +1,13 @@
+/* remove the edges from the body */
+body {
+    margin: 0;
+    padding: 0;
+
+    /* enable display: flex to center the calculator */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/*  */
