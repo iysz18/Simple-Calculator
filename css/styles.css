@@ -10,15 +10,19 @@ body {
     height: 100vh;
 }
 
+/* set the styling for the calculator body */
 #calculatorBody {
+    /* set the dimension */
     height: 35rem;
     width: 25rem;
 
+    /* sort the elements with flex */
     display: flex;
     flex-direction: column;
     
-    /* for visualizing the container size */
-    border: solid 10px black;
+    /* for visualizing the container size and coloring*/
+    background-color: black;
+    border: solid 10px rgb(74, 72, 72);
     border-radius: 5px;
 }
 
@@ -31,8 +35,8 @@ body {
     align-items: center;
 
     /* for visualizing the container size */
-    background-color: gray;
-    border: solid 5px rgb(74, 72, 72);
+    background-color: rgb(178, 178, 178);
+    border: solid 5px black;
 }
 
 /* settings for the result values inside the display container */
@@ -53,8 +57,13 @@ body {
     font-size: 0;
 }
 
-/* set size of each button and font size */
+/* set size of each button, font size & other styles */
 .btn {
+    /* add a border for each button and a radius */
+    background-color: #267365;
+    border-radius: 5px;
+    margin: 0;
+    
     /* font sizing */
     font-size: 35px;
     
@@ -62,6 +71,13 @@ body {
     width: calc(100% / 4);
     height: calc(100% / 5);
 }
+
+/* set the styling for the first row buttons ( AC, +/-, %, / ) */
+.firstRowBtn {
+    background-color: #F29F05;
+}
+
+.operator, .evaluate {background-color: #F23030;}
 
 /* set for the zero key the flex property */
 .btn.zero {
