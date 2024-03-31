@@ -23,14 +23,23 @@ body {
 }
 
 #displayContainer {
-    height: 10rem;
+    height: 7rem;
+
+    /* center the result paragraph container and align left */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 
     /* for visualizing the container size */
     background-color: gray;
+    border: solid 5px rgb(74, 72, 72);
 }
 
 /* settings for the result values inside the display container */
-#resultValues {text-align: right;}
+#resultValues {
+    font-size: 75px;
+    margin: 0 5px 0 5px;
+}
 
 /* styling of the keypad and each button */
 #keypadContainer {
@@ -44,8 +53,12 @@ body {
     font-size: 0;
 }
 
-/* set size of each button */
+/* set size of each button and font size */
 .btn {
+    /* font sizing */
+    font-size: 30px;
+    
+    /* size */
     width: calc(100% / 4);
     height: calc(100% / 5);
 }
