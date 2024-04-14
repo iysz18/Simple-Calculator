@@ -21,6 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 case '=':
                     result = operate(Number(firstNum), Number(secondNum), operator);
                     display.textContent = String(result);
+
+                    // show message if there is no calculation possible
+                    if (firstNum < 1 || secondNum.length < 1 || operator.length < 1) display.textContent = 'ERROR!'
                     
                     break;
                     case '%':
