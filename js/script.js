@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const display = document.querySelector('#resultValues');
     const allKeys = document.querySelectorAll('.btn');
+    const decimalBtn = document.querySelector('.float');
+
     let firstNum = '';
     let secondNum = '';
     let operator = '';
@@ -14,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 case 'AC':
                     display.textContent = '';
                     firstNum = secondNum = operator = '';
+                    decimalBtn.disabled = false;
                     break;
                 case '=':
                     result = operate(Number(firstNum), Number(secondNum), operator);
@@ -33,15 +36,18 @@ document.addEventListener('DOMContentLoaded', () => {
                             // Concatenate digits to firstNum if operator is not set
                             firstNum += btnData;
                             display.textContent += btnData;
+                            if (firstNum.includes('.')) decimalBtn.disabled = true;
                         } else {
                             // Concatenate digits to secondNum if operator is set
                             secondNum += btnData;
                             display.textContent += btnData;
+                            if (secondNum.includes('.')) decimalBtn.disabled = true;
                         }
                     } else if (operArr.includes(btnData)) {
                         if (!operator) {
                             operator = btnData;
                             display.textContent += btnData;
+                            decimalBtn.disabled = false;
                         }
                     }
             }
