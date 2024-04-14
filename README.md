@@ -11,7 +11,6 @@ The Simple Calculator performs basic arithmetic operations: addition, subtractio
 - Basic arithmetic: Addition (+), Subtraction (-), Multiplication (\*), Division (/).
 - Floating-point support.
 - Decimal conversion.
-- Percentage calculation.
 
 ## Usage
 1. Input the first number.
