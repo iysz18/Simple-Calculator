@@ -1,30 +1,63 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // reference each DOM element needed for this calculator
-    const displayContent = document.querySelector('#resultValues');
-    const allBtns = document.querySelectorAll('button');
-
-    // give each btn from the allBtns nodelist click event
-    allBtns.forEach(btn => {
+    const display = document.querySelector('#resultValues');
+    const allKeys = document.querySelectorAll('.btn');
+    let firstNum = '';
+    let secondNum = '';
+    let operator = '';
+    let result = 0;
+    const operArr = ['+', '-', 'x', '/'];
+    
+    allKeys.forEach(btn => {
         btn.addEventListener('click', () => {
-            // store the value of the btn for better access and operator attribute
-            const operatorClass = btn.classList.contains('operator'); 
-            const btnValue = btn.getAttribute('data-key');
-
-            // store each clicked number and operator
-            let firstNum = '';
-            let secondNum = '';
-            let operator = '';
-
-            // populate the display with allowed btnValues & set the display to empty if any button has been clicke
-            if (displayContent.textContent === '0') displayContent.textContent = '';
-            if (!isNaN(btnValue) || operatorClass || btnValue === '.') {
-                displayContent.textContent += btnValue;
-            }
-            else if (btnValue === 'AC') {
-                // reset display, firstNum, secondNum & operator
-                displayContent.textContent = '0';
-                firstNum = secondNum = operator = '';
+            const btnData = btn.getAttribute('data-key');
+            switch (btnData) {
+                case 'AC':
+                    display.textContent = '';
+                    firstNum = secondNum = operator = '';
+                    break;
+                case '=':
+                    result = operate(Number(firstNum), Number(secondNum), operator);
+                    display.textContent = String(result);
+                    
+                    break;
+                    case '%':
+                        if (operator && secondNum) {
+                            // Calculate percentage based on the current operation
+                            const percentage = operate(Number(firstNum), Number(secondNum), operator) / 100;
+                            display.textContent = percentage.toFixed(2);
+                        }
+                        break;
+                default:
+                    if (!isNaN(btnData) || btnData === '.') {
+                        if (!operator) {
+                            // Concatenate digits to firstNum if operator is not set
+                            firstNum += btnData;
+                            display.textContent += btnData;
+                        } else {
+                            // Concatenate digits to secondNum if operator is set
+                            secondNum += btnData;
+                            display.textContent += btnData;
+                        }
+                    } else if (operArr.includes(btnData)) {
+                        if (!operator) {
+                            operator = btnData;
+                            display.textContent += btnData;
+                        }
+                    }
             }
         });
     });
 });
+
+function operate(a, b, operator) {
+    switch (operator) {
+        case '+':
+            return a + b;
+        case '-':
+            return a - b; 
+        case 'x':
+            return a * b;
+        case '/':
+            return a / b;
+    }
+}
