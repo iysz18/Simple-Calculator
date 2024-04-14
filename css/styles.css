@@ -37,6 +37,9 @@ body {
     /* for visualizing the container size */
     background-color: rgb(178, 178, 178);
     border: solid 5px black;
+
+    /* prevent overflow of the result */
+    overflow: hidden;
 }
 
 /* settings for the result values inside the display container */
@@ -77,9 +80,13 @@ body {
     background-color: #F29F05;
 }
 
+.AC {
+    width: calc(100% / 2);
+}
+
 .operator, .evaluate {background-color: #F23030;}
 
 /* set for the zero key the flex property */
 .btn.zero {
-    flex-grow: 1;
+    flex-grow: 1
 }
